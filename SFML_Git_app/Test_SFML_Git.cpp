@@ -30,9 +30,9 @@ int main()
 				window.close();
 		}
 
-		if (clock.getElapsedTime().asSeconds() > 1.0f) {
-			if (rectNyanCat.left == 189)
-				rectNyanCat.left = 0;//63
+		if (clock.getElapsedTime().asSeconds() > 0.1f) {
+			if (rectNyanCat.left == 126)
+				rectNyanCat.left = 0;
 			else
 				rectNyanCat.left += 63;
 
