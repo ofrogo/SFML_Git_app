@@ -5,8 +5,7 @@ using namespace sf;
 int main()
 {
 	RenderWindow window(VideoMode(1600, 900), "SFML works!");
-	CircleShape shape(100.f);
-	shape.setFillColor(Color::Green);
+	
 
 	Texture t;
 	t.loadFromFile("font.jpg");
@@ -17,7 +16,10 @@ int main()
 	Sprite s;
 	s.setTexture(t);
 
-	Sprite gs(g,IntRect(20,10,70,30));
+	IntRect rectNyanCat(0, 0, 63, 30);
+	Sprite gs(g,rectNyanCat);
+
+	Clock clock;
 
 	while (window.isOpen())
 	{
@@ -27,8 +29,19 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
+
+		if (clock.getElapsedTime().asSeconds() > 1.0f) {
+			if (rectNyanCat.left == 189)
+				rectNyanCat.left = 0;//63
+			else
+				rectNyanCat.left += 63;
+
+			gs.setTextureRect(rectNyanCat);
+			clock.restart();
+		}
+
+
 		window.clear();
-		
 		window.draw(s);
 		window.draw(gs);
 		window.display();
