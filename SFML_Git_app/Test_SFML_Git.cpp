@@ -11,7 +11,7 @@ int main()
 	t.loadFromFile("font.jpg");
 
 	Texture g;
-	g.loadFromFile("nyan_cat_t_2(1).png");
+	g.loadFromFile("nyan_cat_t_2 (1).png");
 
 	Sprite s;
 	s.setTexture(t);
