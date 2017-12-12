@@ -1,10 +1,14 @@
 #include <SFML/Graphics.hpp>
 
+using namespace sf;
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(300, 400), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
+
+	Texture t;
 
 	while (window.isOpen())
 	{
@@ -18,7 +22,7 @@ int main()
 		window.clear();
 		window.draw(shape);
 		window.display();
-		window.clear();
+		
 	}
 
 	return 0;
