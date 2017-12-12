@@ -11,12 +11,12 @@ int main()
 	t.loadFromFile("font.jpg");
 
 	Texture g;
-	g.loadFromFile("nyan_cat_t.png");
+	g.loadFromFile("nyan_cat_t_2(1).png");
 
 	Sprite s;
 	s.setTexture(t);
 
-	IntRect rectNyanCat(0, 0, 63, 30);
+	IntRect rectNyanCat(0, 0, 119, 48);
 	Sprite gs(g,rectNyanCat);
 
 	Clock clock;
@@ -31,13 +31,26 @@ int main()
 		}
 
 		if (clock.getElapsedTime().asSeconds() > 0.1f) {
-			if (rectNyanCat.left == 126)
+			if (rectNyanCat.left == 357)
 				rectNyanCat.left = 0;
 			else
-				rectNyanCat.left += 63;
+				rectNyanCat.left += 119;
 
 			gs.setTextureRect(rectNyanCat);
 			clock.restart();
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::Up)) {
+			gs.move(0, -1);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Down)) {
+			gs.move(0, 1);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Left)) {
+			gs.move(-1, 0);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Right)) {
+			gs.move(1, 0);
 		}
 
 
