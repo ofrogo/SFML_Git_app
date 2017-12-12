@@ -4,23 +4,33 @@ using namespace sf;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(300, 400), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	RenderWindow window(VideoMode(1600, 900), "SFML works!");
+	CircleShape shape(100.f);
+	shape.setFillColor(Color::Green);
 
 	Texture t;
+	t.loadFromFile("font.jpg");
+
+	Texture g;
+	g.loadFromFile("nyan_cat_t.png");
+
+	Sprite s;
+	s.setTexture(t);
+
+	Sprite gs(g,IntRect(20,10,70,30));
 
 	while (window.isOpen())
 	{
-		sf::Event event;
+		Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == Event::Closed)
 				window.close();
 		}
-
 		window.clear();
-		window.draw(shape);
+		
+		window.draw(s);
+		window.draw(gs);
 		window.display();
 		
 	}
